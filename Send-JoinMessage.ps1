@@ -31,7 +31,7 @@
     [ValidateSet("group.all","group.android","group.windows10","group.phone","group.tablet","group.pc")] 
     [ValidateNotNullOrEmpty()]
     [string]$Group,
-    [Parameter(Position=4)]
+    [Parameter()]
     [string]$DeviceNames,
     [Parameter()]
     [bool]$displayURL = $false,
