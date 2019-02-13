@@ -8,17 +8,20 @@
     .EXAMPLE
         Get-JoinDevices -Apikey $myapikey
     .EXAMPLE
-        (Get-JoinDevices -Apikey $myapikey).deviceName
-    .EXAMPLE
-        (Get-JoinDevices -Apikey $myapikey).deviceName | Where-Object {$_ -like "Chrome*"}
+        Get-JoinDevices $myapikey -DeviceNameOnly:$false
 
     #>
     param(
     [Parameter(Position=0,mandatory=$true)]
     [ValidateNotNullOrEmpty()]
     [ValidateLength(32,32)]
-    [string]$Apikey
+    [string]$Apikey,
+    [bool]$DeviceNameOnly = $true
     ) #end param
 $jsonobject = (Invoke-WebRequest https://joinjoaomgcd.appspot.com/_ah/api/registration/v1/listDevices?apikey=$myapikey).content | ConvertFrom-Json
-return $jsonobject.records
+if($DeviceNameOnly){
+    return ($jsonobject.records).deviceName
+}else{
+    return $jsonobject.records
+    }
 }
