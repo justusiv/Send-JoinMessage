@@ -1,7 +1,7 @@
 # Send-JoinMessage
 A powershell function to use the api provided by Join. https://joaoapps.com/join/
 
-.SYNOPSIS
+	.SYNOPSIS
         Send-JoinMessage can be used with the Join service to send notifications to your devices.
     .DESCRIPTION
         
