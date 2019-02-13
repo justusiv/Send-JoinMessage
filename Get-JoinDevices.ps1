@@ -9,7 +9,6 @@
         Get-JoinDevices -Apikey $myapikey
     .EXAMPLE
         Get-JoinDevices $myapikey -DeviceNameOnly:$false
-
     #>
     param(
     [Parameter(Position=0,mandatory=$true)]
