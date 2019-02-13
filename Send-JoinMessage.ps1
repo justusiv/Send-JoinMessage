@@ -27,7 +27,7 @@
     [ValidateLength(1,3200)]
     [ValidateNotNullOrEmpty()]
     [string]$Text,
-    [Parameter(Position=3)]
+    [Parameter()]
     [ValidateSet("group.all","group.android","group.windows10","group.phone","group.tablet","group.pc")] 
     [ValidateNotNullOrEmpty()]
     [string]$Group,
