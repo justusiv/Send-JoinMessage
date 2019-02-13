@@ -10,7 +10,9 @@
     .EXAMPLE
         Send-JoinMessage $myapikey title2 text2 group.android
     .EXAMPLE
-        Send-JoinMessage $myapikey title2 text2 group.android
+        Send-JoinMessage -Apikey $myapikey "Title" "Text" -Group group.all -displayResult:$false
+    .EXAMPLE
+        Send-JoinMessage -Apikey $myapikey "Title" "Text" -DeviceNames "Device1,Device2" -displayURL:$true
     #>
     param(
     [Parameter(Position=0,mandatory=$true)]
