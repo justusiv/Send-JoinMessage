@@ -8,7 +8,9 @@
     .EXAMPLE
         Get-JoinDevices -Apikey $myapikey
     .EXAMPLE
-        Send-JoinMessage $myapikey text2 title2 group.android
+        (Get-JoinDevices -Apikey $myapikey).deviceName
+    .EXAMPLE
+        (Get-JoinDevices -Apikey $myapikey).deviceName | Where-Object {$_ -like "Chrome*"}
 
     #>
     param(
@@ -18,5 +20,5 @@
     [string]$Apikey
     ) #end param
 $jsonobject = (Invoke-WebRequest https://joinjoaomgcd.appspot.com/_ah/api/registration/v1/listDevices?apikey=$myapikey).content | ConvertFrom-Json
-$jsonobject.records | ft id, deviceId, deviceName
+return $jsonobject.records
 }
